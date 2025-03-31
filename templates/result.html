@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body style="background-color: rgb(145, 206, 212);">
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('prediction_form') }}">PredictionForm</a>
+        <a href="{{ url_for('result') }}">Result</a>
+        <a href="{{ url_for('signup') }}">Sign Up</a>
+    </nav>
+
+    <div class="container">
+        <h1>Prediction Result</h1>
+        {% if prediction %}
+            <div class="result-box">
+                <h2>Predicted Power Demand:</h2>
+                <p class="prediction-value">{{ prediction }}</p>
+            </div>
+        {% else %}
+            <p>No prediction available. Please submit the prediction form first.</p>
+        {% endif %}
+        <a href="{{ url_for('prediction_form') }}" class="back-btn">Make Another Prediction</a>
+    </div>
+</body>
+</html>
